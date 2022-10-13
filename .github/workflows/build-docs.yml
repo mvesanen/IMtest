@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build-documentation:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -32,9 +32,9 @@ jobs:
         run: sudo pip3 install -r $GITHUB_WORKSPACE/CI/py-packages.txt
     
       - name: Generate markdown
-        run: sudo $GITHUB_WORKSPACE/CI/raw-parse.py
+        run: sudo $GITHUB_WORKSPACE/../CI/raw-parse.py
         
       - name: Generate PDF+DOCX
-        run: sudo $GITHUB_WORKSPACE/CI/pandoc.py
+        run: sudo $GITHUB_WORKSPACE/../CI/pandoc.py
 
    
