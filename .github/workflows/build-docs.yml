@@ -32,9 +32,9 @@ jobs:
         run: sudo pip3 install -r $GITHUB_WORKSPACE/CI/py-packages.txt
     
       - name: Generate markdown
-        run: sudo $GITHUB_WORKSPACE/../CI/raw-parse.py
+        run: sudo python -m $GITHUB_WORKSPACE/CI/raw-parse.py
         
       - name: Generate PDF+DOCX
-        run: sudo $GITHUB_WORKSPACE/../CI/pandoc.py
+        run: sudo python -m $GITHUB_WORKSPACE/CI/pandoc.py
 
    
