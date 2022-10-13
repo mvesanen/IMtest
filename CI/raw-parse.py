@@ -51,21 +51,21 @@ def mdForRef(ref): return references[ref].replace(" ", "") + ".md"
 
 # set the figure interpolation to "figures/" and make a symbolic link such that
 # the resulting interpolation resolves to a real file.
-figure = "figures/"
-os.makedirs("staging", exist_ok=True)
+figure = "../figures/"
+os.makedirs("../staging", exist_ok=True)
 if platform.system() == "Windows":
     # Note, on Windows we recursively copy the figures directory into staging.
-    if(os.path.exists("staging/figures")):
-        shutil.rmtree("staging/figures")
-    shutil.copytree("figures", "staging/figures")
+    if(os.path.exists("../staging/figures")):
+        shutil.rmtree("../staging/figures")
+    shutil.copytree("../figures", "../staging/figures")
 else:
-    if(os.path.exists("staging/figures")):
-        os.remove("staging/figures")
-    os.symlink("../figures/", "staging/figures")
+    if(os.path.exists("../staging/figures")):
+        os.remove("../staging/figures")
+    os.symlink("../figures/", "../staging/figures")
 
 # Files to interpolate:
 interp = collections.OrderedDict()
-interp["markdown/raw-inframodel.md"] = "Inframodel.md"
+interp["../markdown/raw-inframodel.md"] = "Inframodel.md"
 
 def demoustache_file(infile, ROOT):
     for l in infile:
@@ -107,14 +107,6 @@ def moustache(ROOT, command, *args):
         if s_title:
             sys.stdout.write(""" *%s*""" % (s_title.replace('*','')))
     elif command == "include":
-        if key == "annexes":
-            print("\\appendix")
-            print("")
-            for l in next_annex.letters:
-                print("")
-                print("\\clearpage")
-                include_file(ROOT, "../staging/Annex%s.md" % (l))
-        else:
             include_file(ROOT, key)
     elif command == "draft-version":
         sys.stdout.write(get_doc_version())
@@ -188,7 +180,7 @@ if __name__ == "__main__":
                 
 
     for from_name, to_name in interp.items():
-        with open("staging/" + to_name, "w", encoding="utf-8") as outfile:
+        with open("../staging/" + to_name, "w", encoding="utf-8") as outfile:
             sys.stdout = outfile
             with open(from_name, encoding="utf-8") as infile:
                 dirname = os.path.dirname(from_name)
