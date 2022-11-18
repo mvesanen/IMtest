@@ -37,5 +37,14 @@ jobs:
         
       - name: Generate PDF+DOCX
         run: sudo python $GITHUB_WORKSPACE/CI/pandoc.py
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Inframodel (PDF)
+          path: ./artefact/Inframodel_DRAFT.pdf
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Inframodel (DOCX)
+          path: ./artefact/Inframodel_DRAFT.docx
 
    
