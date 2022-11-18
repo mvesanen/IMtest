@@ -55,17 +55,17 @@ figure = "../figures/"
 os.makedirs("../staging", exist_ok=True)
 if platform.system() == "Windows":
     # Note, on Windows we recursively copy the figures directory into staging.
-    if(os.path.exists("../staging/figures")):
-        shutil.rmtree("../staging/figures")
-    shutil.copytree("../figures", "../staging/figures")
+    if(os.path.exists("./staging/figures")):
+        shutil.rmtree("./staging/figures")
+    shutil.copytree("./figures", "../staging/figures")
 else:
-    if(os.path.exists("../staging/figures")):
-        os.remove("../staging/figures")
-    os.symlink("../figures/", "../staging/figures")
+    if(os.path.exists("./staging/figures")):
+        os.remove("./staging/figures")
+    os.symlink("./figures/", "./staging/figures")
 
 # Files to interpolate:
 interp = collections.OrderedDict()
-interp["../markdown/raw-inframodel.md"] = "Inframodel.md"
+interp["./markdown/raw-inframodel.md"] = "Inframodel.md"
 
 def demoustache_file(infile, ROOT):
     for l in infile:
