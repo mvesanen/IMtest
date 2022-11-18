@@ -33,9 +33,9 @@ jobs:
       - name: test
         run: cd $GITHUB_WORKSPACE/CI
       - name: Generate markdown
-        run: $GITHUB_WORKSPACE/CI/raw-parse.py
+        run: sudo $GITHUB_WORKSPACE/CI/raw-parse.py
         
       - name: Generate PDF+DOCX
-        run: python -m pandoc.py
+        run: sudo $GITHUB_WORKSPACE/CI/pandoc.py
 
    
