@@ -33,7 +33,7 @@ jobs:
       - name: test
         run: cd $GITHUB_WORKSPACE/CI
       - name: Generate markdown
-        run: sudo $GITHUB_WORKSPACE/CI/raw-parse.py
+        run: sudo python raw-parse.py
         
       - name: Generate PDF+DOCX
         run: sudo $GITHUB_WORKSPACE/CI/pandoc.py
