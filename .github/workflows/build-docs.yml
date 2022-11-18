@@ -31,7 +31,7 @@ jobs:
       #- name: Install required python-packages
       #  run: sudo pip3 install -r $GITHUB_WORKSPACE/CI/py-packages.txt
       - name: test
-        run: cd $GITHUB_WORKSPACE && ls
+        run: cd $GITHUB_WORKSPACE/CI && ls
       - name: Generate markdown
         run: python -m $GITHUB_WORKSPACE/CI/raw-parse.py
         
