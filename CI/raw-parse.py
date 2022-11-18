@@ -51,8 +51,8 @@ def mdForRef(ref): return references[ref].replace(" ", "") + ".md"
 
 # set the figure interpolation to "figures/" and make a symbolic link such that
 # the resulting interpolation resolves to a real file.
-figure = "../figures/"
-os.makedirs("../staging", exist_ok=True)
+figure = "./figures/"
+os.makedirs("./staging", exist_ok=True)
 if platform.system() == "Windows":
     # Note, on Windows we recursively copy the figures directory into staging.
     if(os.path.exists("./staging/figures")):
