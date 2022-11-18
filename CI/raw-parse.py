@@ -84,7 +84,7 @@ def demoustache_line(line, ROOT):
     sys.stdout.write(line)
 
 def include_file(ROOT, key):
-    elif key.endswith(".xml") or key.endswith(".xsd"):
+    if key.endswith(".xml") or key.endswith(".xsd"):
         sys.stdout.write("```xml\n")
     with open(key, encoding="utf-8") as dfile: demoustache_file(dfile, ROOT)
     if key.endswith(".json") or key.endswith(".xml") or key.endswith(".xsd"): sys.stdout.write("\n```\n\n")
