@@ -180,7 +180,7 @@ if __name__ == "__main__":
                 
 
     for from_name, to_name in interp.items():
-        with open("../staging/" + to_name, "w", encoding="utf-8") as outfile:
+        with open("./staging/" + to_name, "w", encoding="utf-8") as outfile:
             sys.stdout = outfile
             with open(from_name, encoding="utf-8") as infile:
                 dirname = os.path.dirname(from_name)
