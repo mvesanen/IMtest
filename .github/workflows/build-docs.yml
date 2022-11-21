@@ -37,7 +37,8 @@ jobs:
         
       - name: Generate PDF+DOCX
         run: sudo python $GITHUB_WORKSPACE/CI/pandoc.py
-        
+      - name: test
+        run: cd $GITHUB_WORKSPACE/staging && ls  
       - uses: actions/upload-artifact@v3
         with:
           name: Inframodel (PDF)
