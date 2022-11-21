@@ -53,6 +53,7 @@ def mdForRef(ref): return references[ref].replace(" ", "") + ".md"
 # the resulting interpolation resolves to a real file.
 figure = "./figures/"
 os.makedirs("./staging", exist_ok=True)
+os.makedirs("./artefact", exist_ok=True)
 if platform.system() == "Windows":
     # Note, on Windows we recursively copy the figures directory into staging.
     if(os.path.exists("./staging/figures")):
