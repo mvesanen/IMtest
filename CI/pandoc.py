@@ -13,13 +13,13 @@ common_args = ['--from=markdown+escaped_line_breaks+hard_line_breaks', '--filter
 
 latex_args = ['--variable=block-headings']
 for latex_file in ["default", "disable_float", "fignos"]:
-    latex_args.append("--include-in-header=%s.latex" % (latex_file))
+    latex_args.append("--include-in-header=./CI/%s.latex" % (latex_file))
 
 template_file = 'template.latex'
 if os.path.exists(template_file):
     latex_args.append("--template=%s" % (template_file))
 
-word_args = ['--reference-doc=word-template.docx']
+word_args = ['--reference-doc=./CI/word-template.docx']
 
 make_file("pdf" , *common_args, *latex_args, './staging/Inframodel.md')
 make_file("docx", *common_args, *word_args , './staging/Inframodel.md')
