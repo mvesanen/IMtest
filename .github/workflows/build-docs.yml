@@ -47,5 +47,8 @@ jobs:
         with:
           name: Inframodel (DOCX)
           path: ./artefact/Inframodel_DRAFT.docx
-
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Inframodel (HTML)
+          path: ./artefact/Inframodel_DRAFT.html
    
