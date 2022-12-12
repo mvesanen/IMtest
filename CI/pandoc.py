@@ -21,5 +21,8 @@ if os.path.exists(template_file):
 
 word_args = ['--reference-doc=./CI/word-template.docx']
 
+html_args = ['-c css/mvp.css --template template.html']
+
 make_file("pdf" , *common_args, *latex_args, './staging/Inframodel.md')
 make_file("docx", *common_args, *word_args , './staging/Inframodel.md')
+make_file("html", *common_args, *html_args , './staging/Inframodel.md')
